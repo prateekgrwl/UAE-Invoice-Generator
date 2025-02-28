@@ -416,24 +416,21 @@
             margin-bottom: 10px;
         }
         
-        /* Print styles to hide UI elements */
         @media print {
             .container {
                 box-shadow: none;
                 max-width: 100%;
-                padding: 0;
-                margin: 0;
             }
             
-            h1, .tabs, .form-section:not(.active), button, 
-            .invoice-preview h2:first-child {
+            .tabs, 
+            .form-section, 
+            button:not(.print-hide) {
                 display: none;
             }
             
             .invoice-preview {
                 border: none;
                 padding: 0;
-                margin: 0;
             }
         }
         
@@ -655,13 +652,8 @@
             <button id="addItemBtn">+ Add Another Item</button>
             
             <div class="form-group" style="margin-top: 20px;">
-                <label for="notes">Notes (Optional)</label>
+                <label for="notes">Notes / Terms (Optional)</label>
                 <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="termsConditions">Terms & Conditions (Optional)</label>
-                <textarea id="termsConditions" rows="2" placeholder="Enter terms and conditions"></textarea>
             </div>
             
             <div class="action-buttons">
@@ -1060,12 +1052,6 @@
                 // Build the complete invoice HTML
                 const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo">` : '';
                 
-                // Get terms & conditions
-                const termsConditions = document.getElementById('termsConditions').value || '';
-                
-                // Build the complete invoice HTML
-                const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo">` : '';
-                
                 const invoiceHTML = `
                     <div>
                         <div class="invoice-header">
@@ -1173,12 +1159,10 @@
                             </div>
                         ` : ''}
                         
-                        ${termsConditions ? `
-                            <div class="invoice-footer">
-                                <p><strong>Terms & Conditions</strong></p>
-                                <p>${termsConditions}</p>
-                            </div>
-                        ` : ''}
+                        <div class="invoice-footer">
+                            <p><strong>Terms & Conditions</strong></p>
+                            <p>Please make the payment by the due date.</p>
+                        </div>
                     </div>
                 `;
                 
