@@ -563,10 +563,7 @@
                 <input type="url" id="companyWebsite" placeholder="Enter website URL">
             </div>
 
-            <div class="form-group" style="margin-top: 20px;">
-    <label for="notes">Notes / Terms (Optional)</label>
-    <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
-</div>
+    
             
             <div class="action-buttons">
                 <button id="nextToCustomer">Next</button>
@@ -631,6 +628,7 @@
             
             <div id="items-container">
                 <!-- Items will be added here dynamically -->
+                
                 <div class="item-row" data-index="0">
                     <div class="form-group item-description">
                         <label for="itemDescription0">Description *</label>
@@ -651,6 +649,10 @@
                             <option value="5" selected>5% (Standard)</option>
                         </select>
                     </div>
+                    <div class="form-group" style="margin-top: 20px;">
+    <label for="notes">Notes / Terms (Optional)</label>
+    <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
+</div>
                     <div class="item-actions">
                         <button class="danger remove-item" style="margin-top: 30px;" title="Remove Item">×</button>
                     </div>
@@ -660,9 +662,9 @@
             <button id="addItemBtn">+ Add Another Item</button>
             
             <div class="form-group" style="margin-top: 20px;">
-                <label for="notes">Notes / Terms (Optional)</label>
-                <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
-            </div>
+    <label for="notes">Notes / Terms (Optional)</label>
+    <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
+</div>
             
             <div class="action-buttons">
                 <button class="secondary" id="backToCustomer">Previous</button>
