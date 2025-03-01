@@ -417,22 +417,25 @@
         }
         
         @media print {
-            .container {
-                box-shadow: none;
-                max-width: 100%;
-            }
-            
-            .tabs, 
-            .form-section, 
-            button:not(.print-hide) {
-                display: none;
-            }
-            
-            .invoice-preview {
-                border: none;
-                padding: 0;
-            }
-        }
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    h1, .tabs, .form-section:not(.active), button, 
+    .invoice-preview h2:first-child, #invoicePreview h1,
+    .form-section#preview h2 {
+        display: none !important;
+    }
+    
+    .invoice-preview {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+}
         
         /* Logo upload */
         .logo-upload-container {
@@ -559,6 +562,11 @@
                 <label for="companyWebsite">Website (Optional)</label>
                 <input type="url" id="companyWebsite" placeholder="Enter website URL">
             </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+    <label for="notes">Notes / Terms (Optional)</label>
+    <textarea id="notes" rows="3" placeholder="Enter invoice notes, payment terms, etc."></textarea>
+</div>
             
             <div class="action-buttons">
                 <button id="nextToCustomer">Next</button>
@@ -967,7 +975,7 @@
                 const companyPhone = document.getElementById('companyPhone').value || '';
                 const companyEmail = document.getElementById('companyEmail').value || '';
                 const companyWebsite = document.getElementById('companyWebsite').value || '';
-                
+                const termsConditions = document.getElementById('termsConditions').value || '';
                 // Customer information
                 const customerName = document.getElementById('customerName').value || 'Customer Name';
                 const customerAddress = document.getElementById('customerAddress').value || 'Customer Address';
@@ -1159,10 +1167,12 @@
                             </div>
                         ` : ''}
                         
-                        <div class="invoice-footer">
-                            <p><strong>Terms & Conditions</strong></p>
-                            <p>Please make the payment by the due date.</p>
-                        </div>
+                        ${termsConditions ? `
+    <div class="invoice-footer">
+        <p><strong>Terms & Conditions</strong></p>
+        <p>${termsConditions}</p>
+    </div>
+` : ''}
                     </div>
                 `;
                 
