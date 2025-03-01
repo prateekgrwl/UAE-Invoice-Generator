@@ -435,6 +435,27 @@
         padding: 0;
         margin: 0;
     }
+            body {
+        background-color: white !important;
+    }
+    
+    body::before,
+    body::after {
+        display: none !important;
+    }
+    
+    /* Remove any potential background elements */
+    .container::before,
+    .container::after,
+    .invoice-preview::before,
+    .invoice-preview::after {
+        display: none !important;
+    }
+    
+    /* Ensure the page has white background */
+    html, body, .container, .invoice-preview {
+        background-color: white !important;
+    }
 }
         
         /* Logo upload */
