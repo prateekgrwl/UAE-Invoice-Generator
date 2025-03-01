@@ -266,9 +266,16 @@
         }
         
         .invoice-right h2 {
-            font-size: 24px;
-            margin: 0 0 10px 0;
-        }
+        display: block !important;
+        font-size: 24px !important;
+        color: #234e70 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Make sure the invoice title is not affected by other print settings */
+    .invoice-header, .invoice-header * {
+        display: block !important;
+    }
         
         .invoice-right p {
             margin: 2px 0;
