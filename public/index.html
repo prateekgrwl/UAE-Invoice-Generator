@@ -1106,25 +1106,27 @@ const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo
 
 const invoiceHTML = `
 <div>
-    <div data-tax-invoice-heading>TAX INVOICE</div>
-    <div class="invoice-header" style="margin-top: 10px;">
-        <div class="company-info" style="width: 60%;">
-            ${logoHTML ? `<div>${logoHTML}</div>` : ''}
-            <h2 style="margin-top: 5px;">${companyName}</h2>
-            <p>${companyAddress}</p>
-            <p>${companyEmirate}, United Arab Emirates</p>
-            <p>TRN: <span class="trn-number">${companyTRN}</span></p>
-            ${companyPhone ? `<p>Phone: ${companyPhone}</p>` : ''}
-            ${companyEmail ? `<p>Email: ${companyEmail}</p>` : ''}
-            ${companyWebsite ? `<p>Website: ${companyWebsite}</p>` : ''}
-        </div>
-        <div class="invoice-right" style="text-align: right; width: 35%;">
-            <p><strong># ${invoiceNumber}</strong></p>
-            <p><strong>Date: </strong>${formatDate(invoiceDate)}</p>
-            ${dueDate ? `<p><strong>Due Date: </strong>${formatDate(dueDate)}</p>` : ''}
-            <p><strong>Balance Due: </strong>${currency} ${totalAmount.toFixed(2)}</p>
-        </div>
-    </div>
+    <table style="width: 100%; margin-bottom: 20px;">
+        <tr>
+            <td style="width: 50%; vertical-align: top;">
+                ${logoHTML ? `<div style="margin-bottom: 15px;">${logoHTML}</div>` : ''}
+                <div>
+                    <h2 style="margin: 0 0 5px 0; font-size: 16px;">${companyName}</h2>
+                    <p style="margin: 2px 0; font-size: 13px;">${companyAddress}</p>
+                    <p style="margin: 2px 0; font-size: 13px;">${companyEmirate}, United Arab Emirates</p>
+                    <p style="margin: 2px 0; font-size: 13px;">TRN: <span class="trn-number">${companyTRN}</span></p>
+                    ${companyEmail ? `<p style="margin: 2px 0; font-size: 13px;">Email: ${companyEmail}</p>` : ''}
+                </div>
+            </td>
+            <td style="width: 50%; text-align: right; vertical-align: top;">
+                <h1 style="font-size: 24px; margin: 0 0 10px 0; color: #333; text-transform: uppercase;">TAX INVOICE</h1>
+                <p style="margin: 2px 0; font-size: 14px;"><strong># ${invoiceNumber}</strong></p>
+                <p style="margin: 2px 0; font-size: 14px;"><strong>Date:</strong> ${formatDate(invoiceDate)}</p>
+                <p style="margin: 2px 0; font-size: 14px;"><strong>Due Date:</strong> ${formatDate(dueDate || invoiceDate)}</p>
+                <p style="margin: 2px 0; font-size: 14px;"><strong>Balance Due:</strong> ${currency} ${totalAmount.toFixed(2)}</p>
+            </td>
+        </tr>
+    </table>
                         
                         <div class="invoice-details">
                             <div>
