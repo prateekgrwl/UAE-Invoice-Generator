@@ -1107,24 +1107,24 @@ const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo
 const invoiceHTML = `
 <div>
     <div data-tax-invoice-heading>TAX INVOICE</div>
-    <div class="invoice-header">
-        <div class="company-info">
+    <div class="invoice-header" style="margin-top: 10px;">
+        <div class="company-info" style="width: 60%;">
             ${logoHTML ? `<div>${logoHTML}</div>` : ''}
-            <h2>${companyName}</h2>
-                <p>${companyAddress}</p>
-                <p>${companyEmirate}, United Arab Emirates</p>
-                <p>TRN: <span class="trn-number">${companyTRN}</span></p>
-                ${companyPhone ? `<p>Phone: ${companyPhone}</p>` : ''}
-                ${companyEmail ? `<p>Email: ${companyEmail}</p>` : ''}
-                ${companyWebsite ? `<p>Website: ${companyWebsite}</p>` : ''}
-            </div>
-            <div class="invoice-right">
-                <p><strong># ${invoiceNumber}</strong></p>
-                <p><strong>Date: </strong>${formatDate(invoiceDate)}</p>
-                ${dueDate ? `<p><strong>Due Date: </strong>${formatDate(dueDate)}</p>` : ''}
-                <p><strong>Balance Due: </strong>${currency} ${totalAmount.toFixed(2)}</p>
-            </div>
+            <h2 style="margin-top: 5px;">${companyName}</h2>
+            <p>${companyAddress}</p>
+            <p>${companyEmirate}, United Arab Emirates</p>
+            <p>TRN: <span class="trn-number">${companyTRN}</span></p>
+            ${companyPhone ? `<p>Phone: ${companyPhone}</p>` : ''}
+            ${companyEmail ? `<p>Email: ${companyEmail}</p>` : ''}
+            ${companyWebsite ? `<p>Website: ${companyWebsite}</p>` : ''}
         </div>
+        <div class="invoice-right" style="text-align: right; width: 35%;">
+            <p><strong># ${invoiceNumber}</strong></p>
+            <p><strong>Date: </strong>${formatDate(invoiceDate)}</p>
+            ${dueDate ? `<p><strong>Due Date: </strong>${formatDate(dueDate)}</p>` : ''}
+            <p><strong>Balance Due: </strong>${currency} ${totalAmount.toFixed(2)}</p>
+        </div>
+    </div>
                         
                         <div class="invoice-details">
                             <div>
