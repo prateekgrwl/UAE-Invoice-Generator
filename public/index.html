@@ -741,6 +741,48 @@
             const dueDate = new Date();
             dueDate.setDate(dueDate.getDate() + 30);
             document.getElementById('dueDate').value = dueDate.toISOString().split('T')[0];
+
+            // Add localStorage functions here
+    function saveFormData() {
+        const formData = {
+            companyName: document.getElementById('companyName').value,
+            companyAddress: document.getElementById('companyAddress').value,
+            companyTRN: document.getElementById('companyTRN').value,
+            companyEmirate: document.getElementById('companyEmirate').value,
+            companyEmail: document.getElementById('companyEmail').value,
+            companyPhone: document.getElementById('companyPhone').value,
+            companyWebsite: document.getElementById('companyWebsite').value
+        };
+        localStorage.setItem('invoiceFormData', JSON.stringify(formData));
+    }
+
+    function loadFormData() {
+        const savedData = localStorage.getItem('invoiceFormData');
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            
+            document.getElementById('companyName').value = formData.companyName || '';
+            document.getElementById('companyAddress').value = formData.companyAddress || '';
+            document.getElementById('companyTRN').value = formData.companyTRN || '';
+            document.getElementById('companyEmirate').value = formData.companyEmirate || '';
+            document.getElementById('companyEmail').value = formData.companyEmail || '';
+            document.getElementById('companyPhone').value = formData.companyPhone || '';
+            document.getElementById('companyWebsite').value = formData.companyWebsite || '';
+        }
+    }
+
+    // Add event listeners to save data when fields change
+    document.getElementById('companyName').addEventListener('change', saveFormData);
+    document.getElementById('companyAddress').addEventListener('change', saveFormData);
+    document.getElementById('companyTRN').addEventListener('change', saveFormData);
+    document.getElementById('companyEmirate').addEventListener('change', saveFormData);
+    document.getElementById('companyEmail').addEventListener('change', saveFormData);
+    document.getElementById('companyPhone').addEventListener('change', saveFormData);
+    document.getElementById('companyWebsite').addEventListener('change', saveFormData);
+
+    // Load data when page loads
+    loadFormData();
+
             
             // Logo upload handling
             const logoUpload = document.getElementById('logoUpload');
