@@ -441,7 +441,14 @@
     .form-section#preview h2 {
         display: none !important;
     }
-    
+
+  [data-tax-invoice-heading] {
+    display: block !important;
+    color: #234e70 !important;
+    font-size: 24px !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+  }
     .invoice-preview {
         border: none;
         padding: 0;
@@ -1095,17 +1102,15 @@
                 }
                 
                 // Build the complete invoice HTML
-                const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo">` : '';
-                
-                const invoiceHTML = `
-        <div>
-        <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; color: #234e70; margin: 0; padding: 0;">TAX INVOICE</h1>
-        </div>
-        <div class="invoice-header">
-            <div class="company-info">
-                ${logoHTML ? `<div>${logoHTML}</div>` : ''}
-                <h2>${companyName}</h2>
+const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo">` : '';
+
+const invoiceHTML = `
+<div>
+    <div data-tax-invoice-heading>TAX INVOICE</div>
+    <div class="invoice-header">
+        <div class="company-info">
+            ${logoHTML ? `<div>${logoHTML}</div>` : ''}
+            <h2>${companyName}</h2>
                 <p>${companyAddress}</p>
                 <p>${companyEmirate}, United Arab Emirates</p>
                 <p>TRN: <span class="trn-number">${companyTRN}</span></p>
