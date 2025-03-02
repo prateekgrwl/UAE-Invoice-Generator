@@ -1104,7 +1104,11 @@
                 }
                 
                 // Build the complete invoice HTML
-const logoHTML = logoSrc ? `<img src="${logoSrc}" alt="Company Logo" class="logo">` : '';
+const logoHTML = logoSrc ? `
+    <div style="max-height: 80px; max-width: 200px; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="${logoSrc}" alt="Company Logo" style="max-height: 80px; max-width: 200px; object-fit: contain;">
+    </div>
+` : '';
 
 const invoiceHTML = `
 <div>
